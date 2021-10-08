@@ -1,0 +1,52 @@
+@font-face {
+  font-family: 'icons';
+  src:
+    url('fonts/icons.ttf?1d7zqw') format('truetype'),
+    url('fonts/icons.woff?1d7zqw') format('woff'),
+    url('fonts/icons.svg?1d7zqw#icons') format('svg');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+[class^="_icon-"] ::before, [class*=" _icon-"]::before {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'icons' !important;
+  speak: never;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icoFacebook:before {
+  content: "\e900";
+  color: white;
+}
+.icoGithub:before {
+  content: "\e901";
+}
+.icoInstagram:before {
+  content: "\e902";
+}
+.icoMainLink:before {
+  content: "\e903";
+}
+.icoTwitter:before {
+  content: "\e904";
+}
+.icoVk:before {
+  content: "\e905";
+}
+.icoWww:before {
+  content: "\e906";
+}
+.icoYoutube:before {
+  content: "\e907";
+}
+

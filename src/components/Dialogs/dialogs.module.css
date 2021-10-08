@@ -1,0 +1,25 @@
+.dialogs{
+    display: grid;
+    grid-template-areas: 
+    "t t"
+    "d m";
+    grid-template-columns: 1fr 4fr;
+}
+.title{
+    font-size: 30px;
+    font-weight: 700;
+    grid-area: t;
+    padding: 15px;
+    border-bottom: 1px solid rgb(243,218,163);;
+}
+.dialogItems{
+    background-color: #0e1621;
+    grid-area: d;
+    font-size: 18px;
+    line-height: 28px;
+}
+
+.dialogItems a.active{
+    background-color: teal;
+}
+

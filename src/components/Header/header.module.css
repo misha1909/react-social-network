@@ -1,0 +1,21 @@
+.header {
+    grid-area: h;
+    background-color: #0e1621;
+    border-bottom: 1px solid rgb(243,218,163);
+    display: flex;
+}
+.header img{
+    width: 90px;
+    height: 90px;
+}
+.loginBlock{
+    margin:auto 20px auto auto;
+    font-size: 35px;
+    color: white;
+}
+.loginBlock:hover{
+    text-decoration: underline;
+}
+.loginBlock a{
+    color: white;
+}
