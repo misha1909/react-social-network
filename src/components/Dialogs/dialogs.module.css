@@ -22,4 +22,11 @@
 .dialogItems a.active{
     background-color: teal;
 }
-
+.writeMessage{
+    max-width: 500px;
+    min-width: 500px;
+    max-height: 150px; 
+    min-height: 50px;
+    display: block;
+    font-size: 18px;
+}

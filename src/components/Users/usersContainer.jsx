@@ -3,13 +3,15 @@ import { connect } from "react-redux"
 import { unfollow, follow, setCurrentPage, setFollowLoading, getUsers } from "../../redux/usersReducer"
 import UsersItem from './UsersItem/usersItem'
 import Loading from './../common/loading/loading'
-class Users extends React.Component {
-    // constructor(props) {
-    //     super(props)
+import { withAuthRedirect } from '../../hoc/withAuthRedirect'
+import { compose } from 'redux'
+import { getTotalUsersCount, getCurrentPage, getPageSize, getIsLoading, getFollowLoading, getAllUsersSelectorSuper } from '../../redux/usersSelectors'
+import Users from './users'
+class UsersContainer extends React.Component {
 
-    // }
     componentDidMount() {
-        this.props.getUsers(this.props.currentPage, this.props.pageSize);
+        let { currentPage, pageSize } = this.props
+        this.props.getUsers(currentPage, pageSize);
     }
     onPageChanged = (pageNumber) => {
         this.props.getUsers(pageNumber, this.props.pageSize)
@@ -17,7 +19,7 @@ class Users extends React.Component {
     render() {
         return <>
             {this.props.isLoading ? <Loading /> : null}
-            <UsersItem
+            <Users
                 totalUsersCount={this.props.totalUsersCount}
                 pageSize={this.props.pageSize}
                 currentPage={this.props.currentPage}
@@ -32,23 +34,39 @@ class Users extends React.Component {
 
     }
 }
+// let mapStateToProps = (state) => {
+//     return {
+//         users: state.usersPage.users,
+//         pageSize: state.usersPage.pageSize,
+//         totalUsersCount: state.usersPage.totalUsersCount,
+//         currentPage: state.usersPage.currentPage,
+//         isLoading: state.usersPage.isLoading,
+//         followLoading: state.usersPage.followLoading
+//     }
+// }
+
 let mapStateToProps = (state) => {
     return {
-        users: state.usersPage.users,
-        pageSize: state.usersPage.pageSize,
-        totalUsersCount: state.usersPage.totalUsersCount,
-        currentPage: state.usersPage.currentPage,
-        isLoading: state.usersPage.isLoading,
-        followLoading: state.usersPage.followLoading
+        users: getAllUsersSelectorSuper(state),
+        pageSize: getPageSize(state),
+        totalUsersCount: getTotalUsersCount(state),
+        currentPage: getCurrentPage(state),
+        isLoading: getIsLoading(state),
+        followLoading: getFollowLoading(state)
     }
 }
 
 
+export default
 
-export default connect(mapStateToProps, {
-    follow,
-    unfollow,
-    setCurrentPage,
-    setFollowLoading,
-    getUsers //thunk creator
-})(Users)
+    compose(
+        connect(mapStateToProps, {
+            follow,
+            unfollow,
+            setCurrentPage,
+            setFollowLoading,
+            getUsers //thunk creator
+        }),
+        withAuthRedirect
+    )(UsersContainer)
+

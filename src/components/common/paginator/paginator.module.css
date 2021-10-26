@@ -1,0 +1,15 @@
+.pageNumber{
+    width: 500px;
+    overflow: hidden;
+    font-size: 18px;
+    padding-bottom: 30px;
+    text-align: center;
+    margin: 0px auto 0px auto;
+}
+.pageNumber span{
+    padding: 0px 5px 0px 5px;
+}
+.activePage{
+    text-shadow: 0px 0px 4px rgba(0, 255, 230, 1);
+    font-weight: 700;
+}

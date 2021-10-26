@@ -1,0 +1,37 @@
+.loginPage{
+    height: 100%;
+    width: 100%;
+}
+.title{
+    font-size: 36px;
+    font-weight: 700;
+    text-align: center;
+    padding: 20px;
+}
+.loginForms{
+    text-align: center;
+    padding: 30px;
+    width: 500px;
+    margin: 0px auto;
+}
+.inputBox{
+    padding: 15px;
+}
+.check{
+    padding: 10px 20px;
+    font-size: 18px;
+    display: flex;
+    justify-content: start;    
+}
+.btn{
+    font-size: 24px;
+    border-radius: 20px;
+    padding: 5px 50px 7px 50px;
+    background-color: rgb(55, 146, 116);
+    color: white;
+    font-weight: 700;
+    margin-top:20px ;
+}
+.btn:hover{
+    box-shadow: 0px 0px 10px rgb(178, 252, 244);
+}

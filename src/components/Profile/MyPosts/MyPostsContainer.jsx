@@ -1,7 +1,8 @@
 
 import { connect } from 'react-redux'
-import { addPost, updateNewPost } from '../../../redux/profileReducer'
+import { addPostCreator } from '../../../redux/profileReducer'
 import MyPosts from './MyPosts'
+import { compose } from 'redux'
 // let MyPostsContainer = (props) => {
 //     let state = props.store.getState()
 //     let addPost = () => {
@@ -17,14 +18,21 @@ import MyPosts from './MyPosts'
 // }
 let mapStateToProps = (state) => {
     return {
-        posts: state.profilePage.postsData,
-        newPostText: state.profilePage.newPostText
+        posts: state.profilePage.postsData
+    }
+}
+let mapDispatchToProps = (dispatch) => {
+    return {
+        addPost: (newPost) => {
+            dispatch(addPostCreator(newPost))
+        }
     }
 }
 
-const MyPostsContainer = connect(mapStateToProps,
-    {
-        updateNewPost,
-        addPost
-    })(MyPosts)
-export default MyPostsContainer
+
+export default
+    compose(
+        connect(mapStateToProps, mapDispatchToProps)
+    )(MyPosts)
+
+

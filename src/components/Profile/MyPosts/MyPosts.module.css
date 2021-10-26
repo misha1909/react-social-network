@@ -1,3 +1,9 @@
 .myPosts{
     padding: 5px;
 }
+.writePost{
+    max-width: 300px;
+    max-height: 250px;
+    min-width: 300px;
+    min-height: 50px;
+}

@@ -60,3 +60,7 @@
     text-shadow: 0px 0px 4px rgba(0, 255, 230, 1);
     text-decoration: none;
 }
+.activePage{
+    text-shadow: 0px 0px 4px rgba(0, 255, 230, 1);
+    font-weight: 700;
+}
